@@ -32,7 +32,7 @@ const Home = () => {
   const [human, setHuman] = useState({
     x: 0,
     y: 0,
-    //初期値下向き
+    //初期値前向き
     front: [1, 0],
   });
 
@@ -93,6 +93,22 @@ const Home = () => {
     console.log('front');
     console.log(human);
   };
+
+  // const leftPosithon = () => {
+  //   const { x, y, front } = human;
+  //   const [dx, dy] = front;
+  //   let newFront: number[] = [0, 0];
+
+  //   if (dx === 1) {
+  //     newFront = [dy, dx];
+  //   } else if (dy === 1) {
+  //     newFront = [-dy, dx];
+  //   } else if (dx === -1) {
+  //     newFront = [dy, dx];
+  //   } else if (dy === -1) {
+  //     newFront = [-dy, dx];
+  //   }
+  // };
 
   const LeftMove = useCallback(() => {
     const { x, y, front } = human;
@@ -231,7 +247,6 @@ const Home = () => {
   // useEffectを使用して探索を実行し、結果を反映
   useEffect(() => {
     if (searching) {
-      console.log('a');
       const interval = setInterval(() => {
         moveHuman();
         if (human.x === maze.length - 1 && human.y === maze[0].length - 1) {
