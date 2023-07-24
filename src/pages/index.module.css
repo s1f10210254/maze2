@@ -10,8 +10,8 @@
 
 .maze {
   position: relative;
-  width: 2000px;
-  height: 2000px;
+  width: 10000px;
+  height: 10000px;
   background-color: rgb(131 218 56);
   display: grid;
   grid-template-columns: repeat(99, minmax(0, 1fr));
