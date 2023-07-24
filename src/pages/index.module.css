@@ -10,12 +10,12 @@
 
 .maze {
   position: relative;
-  width: 2500px;
-  height: 2500px;
+  width: 800px;
+  height: 800px;
   background-color: rgb(131 218 56);
   display: grid;
-  grid-template-columns: repeat(99, minmax(0, 1fr));
-  grid-template-rows: repeat(99, minmax(0, 1fr));
+  grid-template-columns: repeat(51, minmax(0, 1fr));
+  grid-template-rows: repeat(51, minmax(0, 1fr));
 }
 
 .cell {
@@ -58,16 +58,17 @@
 .arrow {
   width: 0;
   height: 0;
-  border-bottom: 24px solid transparent; /* 矢印の高さを半分に調整 */
-  border-left: 24px;
-  border-top: 24px solid transparent; /* 矢印の高さを半分に調整 */
-  border-right: 24px solid red; /* 矢印の左向きの幅はここを調整 */
+  border-bottom: 15px solid transparent; /* 矢印の高さを半分に調整 */
+  border-left: 15px;
+  border-top: 15px solid transparent; /* 矢印の高さを半分に調整 */
+  border-right: 15px solid red; /* 矢印の左向きの幅はここを調整 */
 }
 
 /* ボタン類 */
 .top {
   display: flex;
-  padding-bottom: 3%;
+
+  /* padding-bottom: 3%; */
 }
 
 .generationbu,

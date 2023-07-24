@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import styles from './index.module.css';
 
 const Home = () => {
-  const initialMaze = Array.from({ length: 99 }, () => Array(99).fill(0));
+  const initialMaze = Array.from({ length: 51 }, () => Array(51).fill(0));
 
   // const initialMaze = [
   //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -243,7 +243,7 @@ const Home = () => {
         if (human.x === maze.length - 1 && human.y === maze[0].length - 1) {
           setSearching(false);
         }
-      }, 10);
+      }, 80);
       return () => {
         clearInterval(interval);
       };
