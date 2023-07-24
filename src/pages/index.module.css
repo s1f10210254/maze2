@@ -10,12 +10,12 @@
 
 .maze {
   position: relative;
-  width: 900px;
-  height: 900px;
+  width: 2000px;
+  height: 2000px;
   background-color: rgb(131 218 56);
   display: grid;
-  grid-template-columns: repeat(15, minmax(0, 1fr));
-  grid-template-rows: repeat(15, minmax(0, 1fr));
+  grid-template-columns: repeat(99, minmax(0, 1fr));
+  grid-template-rows: repeat(99, minmax(0, 1fr));
 }
 
 .cell {
