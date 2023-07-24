@@ -57,7 +57,7 @@ const Home = () => {
         }
       }
     }
-    console.log('両方奇数を１にする↓');
+    console.log('xy座標奇数マスを1にする↓');
     console.table(maze);
     return startCells;
   };
