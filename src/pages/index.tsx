@@ -29,12 +29,13 @@ const Home = () => {
 
   const [maze, setMaze] = useState<number[][]>(initialMaze);
 
-  const [human, setHuman] = useState({
+  const initialHuman = {
     x: 0,
     y: 0,
-    //初期値前向き
     front: [1, 0],
-  });
+  };
+
+  const [human, setHuman] = useState(initialHuman);
 
   const directions = [
     //上右下左
@@ -81,6 +82,7 @@ const Home = () => {
     }
 
     setMaze(updatedMaze);
+    setHuman(initialHuman);
 
     console.log('迷路盤↓');
     console.table(maze);
