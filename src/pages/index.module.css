@@ -32,6 +32,7 @@
 
 .start,
 .goal {
+  color: rgb(39 59 12);
   font-size: 22px; /* 文字の大きさを調整 */
   font-weight: bold; /* 太字にする */
   position: absolute; /* 要素を絶対位置に配置する */
