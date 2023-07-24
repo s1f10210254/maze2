@@ -27,8 +27,6 @@ const Home = () => {
 
   const [maze, setMaze] = useState<number[][]>(initialMaze);
 
-  // console.log('xy確認', maze[1][3]);
-
   const [human, setHuman] = useState({
     x: 0,
     y: 0,
@@ -45,15 +43,13 @@ const Home = () => {
   ];
 
   const mazeGeneration_Odd = () => {
+    setMaze(initialMaze);
     const startCells: number[][] = [];
 
     for (let x = 0; x < maze.length; x++) {
       for (let y = 0; y < maze[x].length; y++) {
         if (x % 2 === 1 && y % 2 === 1) {
           startCells.push([y, x]);
-          const updatedMaze = [...maze];
-          updatedMaze[y][x] = 1;
-          setMaze(updatedMaze);
         }
       }
     }
@@ -64,10 +60,9 @@ const Home = () => {
 
   const generation = () => {
     // const updatedMaze = JSON.parse(JSON.stringify(initialMaze));
-
-    const updatedMaze = [...maze];
-
     const startCells = mazeGeneration_Odd();
+
+    const updatedMaze = JSON.parse(JSON.stringify(initialMaze));
 
     for (const startCell of startCells) {
       const [y, x] = startCell;
@@ -76,17 +71,14 @@ const Home = () => {
       const randomDirectionIndex = Math.floor(Math.random() * 4);
       const randomDirection = directions[randomDirectionIndex];
       const [dy, dx] = randomDirection;
-
       // 選択した方向のセルが迷路の範囲内であれば、そのセルの値を1に変更
       const newX = x + dx;
       const newY = y + dy;
-      if (newX >= 0 && newX < maze.length && newY >= 0 && newY < maze[0].length) {
-        updatedMaze[newY][newX] = 1;
-      }
+      updatedMaze[newY][newX] = 1;
+      updatedMaze[y][x] = 1;
     }
 
     setMaze(updatedMaze);
-    // setMaze(updatedMaze);
 
     console.log('迷路盤↓');
     console.table(maze);
@@ -240,9 +232,6 @@ const Home = () => {
   };
 
   const [searching, setSearching] = useState(false); // 探索中かどうかの状態を追加
-
-  // 探索を実行する関数
-  // const explore = useCallback(() => {}, [setSearching, maze, moveHuman, human.x, human.y]);
 
   // useEffectを使用して探索を実行し、結果を反映
   useEffect(() => {
