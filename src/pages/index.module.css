@@ -29,7 +29,7 @@
 
 .start,
 .goal {
-  font-size: 24px; /* 文字の大きさを調整 */
+  font-size: 22px; /* 文字の大きさを調整 */
   font-weight: bold; /* 太字にする */
   position: absolute; /* 要素を絶対位置に配置する */
   top: 50%; /* 上から50%の位置に配置 */
@@ -67,6 +67,7 @@
 /* ボタン類 */
 .top {
   display: flex;
+  padding-bottom: 3%;
 }
 
 .generationbu {

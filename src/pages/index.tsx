@@ -218,8 +218,8 @@ const Home = () => {
       turnright();
       console.log('turnright実行');
     }
+    // console.log('human', human);
   }, [maze, human, LeftMove, goMove, turnright]);
-  console.log('human', human);
 
   // 矢印の向きを計算する関数
   const getArrowRotation = (dx: number, dy: number): number => {
@@ -252,7 +252,7 @@ const Home = () => {
         if (human.x === maze.length - 1 && human.y === maze[0].length - 1) {
           setSearching(false);
         }
-      }, 500);
+      }, 300);
       return () => {
         clearInterval(interval);
       };
@@ -289,9 +289,9 @@ const Home = () => {
                   />
                 </div>
               )}
-              {x === 0 && y === 0 && <div className={styles.start}>S</div>}
+              {x === 0 && y === 0 && <div className={styles.start}>start</div>}
               {x === maze.length - 1 && y === maze[0].length - 1 && (
-                <div className={styles.goal}>G</div>
+                <div className={styles.goal}>goal</div>
               )}
             </div>
           ))
