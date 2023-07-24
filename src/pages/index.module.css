@@ -10,8 +10,8 @@
 
 .maze {
   position: relative;
-  width: 700px;
-  height: 700px;
+  width: 900px;
+  height: 900px;
   background-color: rgb(131 218 56);
   display: grid;
   grid-template-columns: repeat(15, minmax(0, 1fr));
@@ -70,25 +70,11 @@
   padding-bottom: 3%;
 }
 
-.generationbu {
-  width: 300px;
-  height: 50px;
-  background-color: rgb(224 188 236);
-  color: rgb(12 11 11);
-  border-radius: 0.4rem;
-  cursor: pointer;
-}
-
-.humanbu {
-  width: 300px;
-  height: 50px;
-  background-color: rgb(224 188 236);
-  color: rgb(12 11 11);
-  border-radius: 0.4rem;
-  cursor: pointer;
-}
-
+.generationbu,
+.humanbu,
 .flowbu {
+  font-size: 22px; /* 文字の大きさを調整 */
+  font-weight: bold; /* 太字にする */
   width: 300px;
   height: 50px;
   background-color: rgb(224 188 236);
