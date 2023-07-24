@@ -289,6 +289,10 @@ const Home = () => {
                   />
                 </div>
               )}
+              {x === 0 && y === 0 && <div className={styles.start}>S</div>}
+              {x === maze.length - 1 && y === maze[0].length - 1 && (
+                <div className={styles.goal}>G</div>
+              )}
             </div>
           ))
         )}
