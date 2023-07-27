@@ -128,36 +128,26 @@ const Home = () => {
     setHuman({ ...human, front: newFront });
   }, [human]);
 
+  //指定された座標が迷路の範囲内かつ壁でないかチェック
+  const isMovable = (x: number, y: number, maze: number[][]) => {
+    return x >= 0 && x < maze.length && y >= 0 && y < maze[0].length && maze[x][y] === 0;
+  };
   // moveHuman 関数
   const moveHuman = useCallback(() => {
     const { x, y, front } = human;
-    const { newX, newY } = calculateNextLeftPosition(x, y, front);
 
     if (x === maze.length - 1 && y === maze[0].length - 1) {
       alert('goal!');
       setSearching(false);
       return;
     }
-
+    const { newX, newY } = calculateNextLeftPosition(x, y, front);
     const goX = x + front[0];
     const goY = y + front[1];
-
-    if (
-      newX >= 0 &&
-      newX < maze.length &&
-      newY >= 0 &&
-      newY < maze[0].length &&
-      maze[newX][newY] === 0
-    ) {
+    if (isMovable(newX, newY, maze)) {
       LeftMove();
       console.log('leftmove実行');
-    } else if (
-      goX >= 0 &&
-      goX < maze.length &&
-      goY >= 0 &&
-      goY < maze[0].length &&
-      maze[goX][goY] === 0
-    ) {
+    } else if (isMovable(goX, goY, maze)) {
       goMove();
       console.log('goMove実行');
     } else {
@@ -168,20 +158,17 @@ const Home = () => {
 
   // 矢印の向きを計算する関数
   const getArrowRotation = (dx: number, dy: number): number => {
-    if (dx === 1 && dy === 0) {
-      // 下向き
-      return 270;
-    } else if (dx === 0 && dy === -1) {
-      // 左向き
-      return 0;
-    } else if (dx === -1 && dy === 0) {
-      // 上向き
-      return 90;
-    } else if (dx === 0 && dy === 1) {
-      // 右向き
-      return 180;
-    }
-    return 0;
+    // 矢印の向きをオブジェクトで管理
+    const arrowDirections: { [key: string]: number } = {
+      '1,0': 270, // 下向き
+      '0,-1': 0, // 左向き
+      '-1,0': 90, // 上向き
+      '0,1': 180, // 右向き
+    };
+
+    // オブジェクトから矢印の向きを取得し、見つからない場合はデフォルト値 (0) を返す
+    const key = `${dx},${dy}`;
+    return arrowDirections[key] || 0;
   };
 
   const [searching, setSearching] = useState(false); // 探索中かどうかの状態を追加
