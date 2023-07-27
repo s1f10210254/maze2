@@ -27,6 +27,8 @@ const Home = () => {
               cell={cell}
               isHuman={human.x === x && human.y === y}
               arrowRotation={getArrowRotation(human.front[0], human.front[1])}
+              isStart={x === 0 && y === 0}
+              isGoal={x === maze.length - 1 && y === maze[0].length - 1}
             />
           ))
         )}

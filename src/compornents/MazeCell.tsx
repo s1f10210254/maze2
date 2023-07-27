@@ -1,13 +1,19 @@
 import styles from './MazeCell.module.css';
 
+import { StartGoal } from './StartGoal';
+
 export const MazeCell = ({
   cell,
   isHuman,
   arrowRotation,
+  isStart,
+  isGoal,
 }: {
   cell: number;
   isHuman: boolean;
   arrowRotation: number;
+  isStart: boolean;
+  isGoal: boolean;
 }) => {
   return (
     <div className={styles.cell}>
@@ -17,9 +23,7 @@ export const MazeCell = ({
           <div className={styles.arrow} style={{ transform: `rotate(${arrowRotation}deg)` }} />
         </div>
       )}
+      <StartGoal isStart={isStart} isGoal={isGoal} />
     </div>
   );
 };
-
-/* {isHuman && <div className={styles.start}>start</div>}
-//       {!isHuman && cell !== 1 && <div className={styles.goal}>goal</div>} */
