@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import styles from './index.module.css';
 
 const Home = () => {
-  const initialMaze = Array.from({ length: 51 }, () => Array(51).fill(0));
+  const initialMaze = Array.from({ length: 31 }, () => Array(31).fill(0));
 
   // const initialMaze = [
   //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -282,9 +282,18 @@ const Home = () => {
                   />
                 </div>
               )}
-              {x === 0 && y === 0 && <div className={styles.start}>start</div>}
+              {x === 0 && y === 0 && (
+                <div className={styles.start}>
+                  start
+                  <br />
+                  <br />
+                </div>
+              )}
               {x === maze.length - 1 && y === maze[0].length - 1 && (
-                <div className={styles.goal}>goal</div>
+                <div className={styles.goal}>
+                  <br />
+                  goal
+                </div>
               )}
             </div>
           ))
