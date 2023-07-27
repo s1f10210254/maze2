@@ -3,30 +3,6 @@ import styles from './index.module.css';
 
 const Home = () => {
   const initialMaze = Array.from({ length: 31 }, () => Array(31).fill(0));
-
-  // const initialMaze = [
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  //   [0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  // ];
-  // const initialMaze = [
-  //   [0, 0, 0],
-  //   [0, 0, 0],
-  //   [0, 0, 0],
-  // ];
-
   const [maze, setMaze] = useState<number[][]>(initialMaze);
 
   const initialHuman = {
@@ -34,7 +10,6 @@ const Home = () => {
     y: 0,
     front: [1, 0],
   };
-
   const [human, setHuman] = useState(initialHuman);
 
   const directions = [
@@ -83,36 +58,21 @@ const Home = () => {
 
     setMaze(updatedMaze);
     setHuman(initialHuman);
+    setSearching(false);
 
     console.log('迷路盤↓');
     console.table(maze);
     console.log('front');
     console.log(human);
   };
-
-  // const leftPosithon = () => {
-  //   const { x, y, front } = human;
-  //   const [dx, dy] = front;
-  //   let newFront: number[] = [0, 0];
-
-  //   if (dx === 1) {
-  //     newFront = [dy, dx];
-  //   } else if (dy === 1) {
-  //     newFront = [-dy, dx];
-  //   } else if (dx === -1) {
-  //     newFront = [dy, dx];
-  //   } else if (dy === -1) {
-  //     newFront = [-dy, dx];
-  //   }
-  // };
-
-  const LeftMove = useCallback(() => {
-    const { x, y, front } = human;
+  // 新しい関数：次の座標を計算する関数
+  const calculateNextLeftPosition = (x: number, y: number, front: number[]) => {
     const [dx, dy] = front;
+    let newFront = [0, 0];
+    let newX = x;
+    let newY = y;
 
     // 現在の向きを左に90度変更
-    // 左に行く座標を計算
-    let newFront: number[] = [0, 0];
     if (dx === 1) {
       newFront = [dy, dx];
     } else if (dy === 1) {
@@ -124,10 +84,18 @@ const Home = () => {
     }
 
     // 新しい座標を計算
-    const nextX = x + newFront[0];
-    const nextY = y + newFront[1];
+    newX = x + newFront[0];
+    newY = y + newFront[1];
 
-    setHuman({ x: nextX, y: nextY, front: newFront });
+    return { newX, newY, newFront };
+  };
+
+  // LeftMove 関数
+  const LeftMove = useCallback(() => {
+    const { x, y, front } = human;
+    const { newX, newY, newFront } = calculateNextLeftPosition(x, y, front);
+
+    setHuman({ x: newX, y: newY, front: newFront });
   }, [human]);
 
   const goMove = useCallback(() => {
@@ -160,9 +128,10 @@ const Home = () => {
     setHuman({ ...human, front: newFront });
   }, [human]);
 
+  // moveHuman 関数
   const moveHuman = useCallback(() => {
     const { x, y, front } = human;
-    const [dx, dy] = front;
+    const { newX, newY } = calculateNextLeftPosition(x, y, front);
 
     if (x === maze.length - 1 && y === maze[0].length - 1) {
       alert('goal!');
@@ -170,36 +139,19 @@ const Home = () => {
       return;
     }
 
-    // 左に行く座標を計算
-    let newFront: number[] = [0, 0];
-    if (dx === 1) {
-      newFront = [dy, dx];
-    } else if (dy === 1) {
-      newFront = [-dy, dx];
-    } else if (dx === -1) {
-      newFront = [dy, dx];
-    } else if (dy === -1) {
-      newFront = [-dy, dx];
-    }
+    const goX = x + front[0];
+    const goY = y + front[1];
 
-    // const newFront = [dy >= 0 ? -dy : dy, dx];
-    const leftX = x + newFront[0];
-    const leftY = y + newFront[1];
-    // 前に行く座標
-    const goX = x + dx;
-    const goY = y + dy;
     if (
-      leftX >= 0 &&
-      leftX < maze.length &&
-      leftY >= 0 &&
-      leftY < maze[0].length &&
-      maze[leftX][leftY] === 0
+      newX >= 0 &&
+      newX < maze.length &&
+      newY >= 0 &&
+      newY < maze[0].length &&
+      maze[newX][newY] === 0
     ) {
       LeftMove();
       console.log('leftmove実行');
-    }
-    // 前が壁でない場合は前に進む
-    else if (
+    } else if (
       goX >= 0 &&
       goX < maze.length &&
       goY >= 0 &&
@@ -208,13 +160,10 @@ const Home = () => {
     ) {
       goMove();
       console.log('goMove実行');
-    }
-    // どちらも壁の場合は右に回る
-    else {
+    } else {
       turnright();
       console.log('turnright実行');
     }
-    // console.log('human', human);
   }, [maze, human, LeftMove, goMove, turnright]);
 
   // 矢印の向きを計算する関数
@@ -245,7 +194,7 @@ const Home = () => {
         if (human.x === maze.length - 1 && human.y === maze[0].length - 1) {
           setSearching(false);
         }
-      }, 80);
+      }, 50);
       return () => {
         clearInterval(interval);
       };
@@ -254,6 +203,7 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
+      <h1>迷路ゲーム</h1>
       <div className={styles.top}>
         <button className={styles.generationbu} onClick={generation}>
           生成
@@ -263,7 +213,7 @@ const Home = () => {
         </button>
 
         <button className={styles.flowbu} onClick={() => setSearching(true)}>
-          flow
+          auto探索
         </button>
       </div>
       <div className={styles.maze}>
