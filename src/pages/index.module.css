@@ -3,21 +3,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  /* height: 100vh; */
-
-  /* min-height: 100vh; */
+  min-height: 100vh;
   background-color: rgb(244 235 185);
-  padding-bottom: 250px;
-
-  /* padding: 0 0.5rem; */
+  width: 100vw;
 }
 
 .maze {
   border: solid black;
   position: relative;
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
   background-color: rgb(176 233 123);
   display: grid;
   grid-template-columns: repeat(31, minmax(0, 1fr));
@@ -35,10 +30,14 @@
 .flowbu {
   font-size: 22px; /* 文字の大きさを調整 */
   font-weight: bold; /* 太字にする */
-  width: 300px;
-  height: 50px;
+  width: 200px;
+  height: 40px;
   background-color: rgb(224 188 236);
   color: rgb(12 11 11);
   border-radius: 0.4rem;
   cursor: pointer;
+}
+
+.a {
+  height: 90px;
 }
