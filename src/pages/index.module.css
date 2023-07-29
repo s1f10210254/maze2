@@ -2,17 +2,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
+  /* justify-content: center; */
   min-height: 100vh;
   background-color: rgb(244 235 185);
   width: 100vw;
+  height: 100vw;
 }
 
 .maze {
   border: solid black;
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   background-color: rgb(176 233 123);
   display: grid;
   grid-template-columns: repeat(31, minmax(0, 1fr));
@@ -36,8 +38,4 @@
   color: rgb(12 11 11);
   border-radius: 0.4rem;
   cursor: pointer;
-}
-
-.a {
-  height: 90px;
 }
