@@ -34,6 +34,7 @@ const Home = () => {
           ))
         )}
       </div>
+      <div className={styles.space} />
     </div>
   );
 };
