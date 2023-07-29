@@ -5,8 +5,8 @@
   font-size: 50px; /* 文字の大きさを調整 */
   font-weight: bold; /* 太字にする */
   position: absolute; /* 要素を絶対位置に配置する */
-  top: 50%; /* 上から50%の位置に配置 */
+  top: 30%; /* 上から50%の位置に配置 */
   left: 50%; /* 左から50%の位置に配置 */
-  transform: translate(-50%, -50%); /* 要素の中心が画面の中央にくるように調整 */
+  transform: translate(-30%, -50%); /* 要素の中心が画面の中央にくるように調整 */
   pointer-events: none; /* イベントが要素に影響しないようにする */
 }
