@@ -24,7 +24,8 @@
 /* ボタン類 */
 .top {
   display: flex;
-  padding-bottom: 5%;
+
+  /* padding-bottom: 5%; */
 }
 
 .generationbu,
@@ -38,4 +39,8 @@
   color: rgb(12 11 11);
   border-radius: 0.4rem;
   cursor: pointer;
+}
+
+.space {
+  height: 100px;
 }

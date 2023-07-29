@@ -18,6 +18,7 @@ const Home = () => {
         <button className={styles.flowbu} onClick={() => setSearching(true)}>
           auto探索
         </button>
+        <div className={styles.space} />
       </div>
       <div className={styles.maze}>
         {maze.map((row, x) =>
