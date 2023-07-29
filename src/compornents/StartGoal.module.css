@@ -1,5 +1,6 @@
 .start,
 .goal {
+  padding-bottom: 100%;
   color: rgb(39 59 12);
   font-size: 50px; /* 文字の大きさを調整 */
   font-weight: bold; /* 太字にする */

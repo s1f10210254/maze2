@@ -10,6 +10,7 @@
 }
 
 .maze {
+  border: solid black;
   position: relative;
   width: 600px;
   height: 600px;
