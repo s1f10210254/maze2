@@ -18,6 +18,10 @@
   display: grid;
   grid-template-columns: repeat(31, minmax(0, 1fr));
   grid-template-rows: repeat(31, minmax(0, 1fr));
+
+  /* display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; */
 }
 
 /* ボタン類 */
