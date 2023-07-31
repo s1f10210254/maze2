@@ -2,35 +2,41 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100%;
+
+  /* justify-content: center; */
+  min-height: 100vh;
   background-color: rgb(244 235 185);
-  width: 100%;
-  height: 1000%;
+  width: 100vw;
 }
 
 .maze {
   border: solid black;
   position: relative;
-  width: 800px;
-  height: 800px;
+  width: 600px;
+  height: 600px;
   background-color: rgb(176 233 123);
   display: grid;
   grid-template-columns: repeat(31, minmax(0, 1fr));
   grid-template-rows: repeat(31, minmax(0, 1fr));
+
+  /* display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; */
 }
 
 /* ボタン類 */
 .top {
   display: flex;
+
+  /* padding-bottom: 5%; */
 }
 
 .generationbu,
 .humanbu,
 .flowbu {
-  font-size: 24px; /* 文字の大きさを調整 */
+  font-size: 22px; /* 文字の大きさを調整 */
   font-weight: bold; /* 太字にする */
-  width: 300px;
+  width: 200px;
   height: 50px;
   background-color: rgb(224 188 236);
   color: rgb(12 11 11);
