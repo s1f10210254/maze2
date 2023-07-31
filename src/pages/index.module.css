@@ -12,8 +12,10 @@
 .maze {
   border: solid black;
   position: relative;
-  width: 60vh;
-  height: 60vh;
+
+  /* width: 50%; */
+
+  height: 50%;
   background-color: rgb(176 233 123);
   display: grid;
   grid-template-columns: repeat(31, minmax(0, 1fr));
