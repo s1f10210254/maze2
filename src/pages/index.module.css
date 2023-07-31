@@ -11,8 +11,9 @@
 .maze {
   border: solid black;
   position: relative;
-  width: 600px;
-  height: 600px;
+  justify-content: center;
+  width: 50vw;
+  height: 50vw;
   background-color: rgb(176 233 123);
   display: grid;
   grid-template-columns: repeat(31, minmax(0, 1fr));
