@@ -4,9 +4,9 @@
   align-items: center;
 
   /* justify-content: center; */
-  min-height: 100vh;
+  min-height: 100%;
   background-color: rgb(244 235 185);
-  width: 100vw;
+  width: 100%;
 }
 
 .maze {
@@ -20,17 +20,11 @@
   display: grid;
   grid-template-columns: repeat(31, minmax(0, 1fr));
   grid-template-rows: repeat(31, minmax(0, 1fr));
-
-  /* display: flex;
-  flex-wrap: wrap;
-  flex-direction: row; */
 }
 
 /* ボタン類 */
 .top {
   display: flex;
-
-  /* padding-bottom: 5%; */
 }
 
 .generationbu,
@@ -38,7 +32,7 @@
 .flowbu {
   font-size: 24px; /* 文字の大きさを調整 */
   font-weight: bold; /* 太字にする */
-  width: 200px;
+  width: 300px;
   height: 50px;
   background-color: rgb(224 188 236);
   color: rgb(12 11 11);
@@ -47,5 +41,5 @@
 }
 
 .space {
-  height: 100px;
+  height: 200px;
 }
