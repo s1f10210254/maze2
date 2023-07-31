@@ -44,9 +44,9 @@
 .generationbu,
 .humanbu,
 .flowbu {
-  font-size: 22px; /* 文字の大きさを調整 */
+  font-size: 5vh; /* 文字の大きさを調整 */
   font-weight: bold; /* 太字にする */
-  width: 40vh;
+  width: 30vh;
   height: 10vh;
   background-color: rgb(224 188 236);
   color: rgb(12 11 11);
