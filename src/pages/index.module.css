@@ -6,16 +6,13 @@
   min-height: 100%;
   background-color: rgb(244 235 185);
   width: 100%;
-  height: 200%;
 }
 
 .maze {
   border: solid black;
   position: relative;
-
-  /* width: 50%; */
-
-  height: 50%;
+  width: 800px;
+  height: 800px;
   background-color: rgb(176 233 123);
   display: grid;
   grid-template-columns: repeat(31, minmax(0, 1fr));
@@ -41,5 +38,5 @@
 }
 
 .space {
-  height: 200px;
+  height: 100px;
 }
