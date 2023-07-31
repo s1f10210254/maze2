@@ -15,7 +15,7 @@
   flex-direction: column;
   display: flex;
   font-weight: bold; /* 太字にする */
-  font-size: 40px; /* 文字の大きさを調整 */
+  font-size: 8vh; /* 文字の大きさを調整 */
 }
 
 .maze {
@@ -50,7 +50,7 @@
   height: 10vh;
   background-color: rgb(224 188 236);
   color: rgb(12 11 11);
-  border-radius: 0.4rem;
+  border-radius: 0.9rem;
   cursor: pointer;
 }
 
