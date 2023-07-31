@@ -8,6 +8,16 @@
   width: 100vw;
 }
 
+.ti {
+  width: 100vw;
+  height: 10vh;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  font-weight: bold; /* 太字にする */
+  font-size: 40px; /* 文字の大きさを調整 */
+}
+
 .maze {
   border: solid black;
   position: relative;
@@ -36,8 +46,8 @@
 .flowbu {
   font-size: 22px; /* 文字の大きさを調整 */
   font-weight: bold; /* 太字にする */
-  width: 200px;
-  height: 50px;
+  width: 40vh;
+  height: 10vh;
   background-color: rgb(224 188 236);
   color: rgb(12 11 11);
   border-radius: 0.4rem;
@@ -45,5 +55,5 @@
 }
 
 .space {
-  height: 100px;
+  height: 20vh;
 }
