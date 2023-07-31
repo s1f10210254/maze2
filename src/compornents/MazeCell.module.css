@@ -24,6 +24,24 @@
   background-position: center; */
 }
 
+.humananimation {
+  animation: runanimation 2s infinite; /* アニメーションを1秒間繰り返す */
+}
+
+@keyframes runanimation {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .arrow {
   width: 0;
   height: 0;
