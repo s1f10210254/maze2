@@ -45,9 +45,9 @@
 .arrow {
   width: 0;
   height: 0;
-  padding-left: 1.35vh;
-  border-bottom: 1.35vh solid transparent; /* 矢印の高さを半分に調整 */
-  border-left: 1.35vh;
-  border-top: 1.35vh solid transparent; /* 矢印の高さを半分に調整 */
-  border-right: 1.35vh solid red; /* 矢印の左向きの幅はここを調整 */
+  padding-left: 0.7vw;
+  border-bottom: 0.7vw solid transparent; /* 矢印の高さを半分に調整 */
+  border-left: 0.7vw;
+  border-top: 0.7vw solid transparent; /* 矢印の高さを半分に調整 */
+  border-right: 0.7vw solid red; /* 矢印の左向きの幅はここを調整 */
 }
