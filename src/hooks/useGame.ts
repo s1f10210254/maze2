@@ -91,7 +91,7 @@ export const useGame = () => {
 
     setHuman({ x: newX, y: newY, front: newFront });
   }, [human]);
-
+  //前
   const goMove = useCallback(() => {
     const { x, y, front } = human;
     const [dx, dy] = front;
