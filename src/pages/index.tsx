@@ -7,7 +7,6 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
-      {/* <h1>迷路ゲーム</h1> */}
       <div className={styles.ti}>迷路ゲーム</div>
       <div className={styles.top}>
         <button className={styles.generationbu} onClick={generationMazeBoard}>
